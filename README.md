@@ -1,4 +1,4 @@
-# ./da-browser
+# ./browser
 
 ## Setup
 

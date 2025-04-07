@@ -1,24 +1,26 @@
-# ./adeabah
+# ./browser
 
-## Project setup
-```
-yarn install
-```
+## Setup
 
-### Compiles and hot-reloads for development
-```
-yarn run dev
-```
+```bash
+# yarn
+yarn install # install dependencies
 
-### Compiles and minifies for production
-```
-yarn build
+yarn run dev # start the development server
+
+yarn build # build the application for production
+
+yarn preview # locally preview production build
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
+Look at the
+[Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to
+learn more.
+
+Check out the
+[deployment documentation](https://nuxt.com/docs/getting-started/deployment) for
+more information.
 
 ### Customize configuration
+
 See [Configuration Reference](https://cli.vuejs.org/config/).

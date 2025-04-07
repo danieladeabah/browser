@@ -1,12 +1,6 @@
 <template>
   <div class="flex flex-col mb-20">
-    <div class="flex items-center justify-between mx-5 mt-8 mb-4">
-      <p class="text-[#73B1F0] text-sm font-normal">
-        <span v-if="articles && articles.length > 0">{{
-          texts.articles.text
-        }}</span>
-        <span v-else>{{ texts.articles.empty }}</span>
-      </p>
+    <div class="flex items-center justify-end mx-5 mt-8 mb-4">
       <p
         class="flex items-center gap-1 text-sm text-gray-400 font-extralight cursor-pointer bg-[#F5F5F5] rounded px-2"
         title="Create Article"
@@ -20,22 +14,29 @@
         /><span>{{ texts.comments.add }}</span>
       </p>
     </div>
-    <NuxtLink
-      v-for="(article, index) in articles"
-      :key="index"
-      :to="'reads/' + article.id"
-      class="flex items-center justify-between mx-5 border gap-5 rounded-xl p-5 my-2"
-    >
-      <div class="flex flex-col gap-3">
-        <p class="text-gray-400 text-sm font-normal">{{ article.source }}</p>
-        <p>{{ article.title }}</p>
-      </div>
-      <img
-        :src="article.image || article.defaultImage"
-        alt="article img"
-        class="w-20 h-20 rounded-md object-cover"
-      />
-    </NuxtLink>
+    <div v-if="articles && articles.length > 0">
+      <NuxtLink
+        v-for="(article, index) in articles"
+        :key="index"
+        :to="'reads/' + article.id"
+        class="flex items-center justify-between mx-5 border gap-5 rounded-xl p-5 my-2"
+      >
+        <div class="flex flex-col gap-3">
+          <p class="text-gray-400 text-sm font-normal">{{ article.source }}</p>
+          <p>{{ article.title }}</p>
+        </div>
+        <img
+          :src="article.image || article.defaultImage"
+          alt="article img"
+          class="w-20 h-20 rounded-md object-cover"
+        />
+      </NuxtLink>
+    </div>
+    <div v-else class="flex flex-col items-center justify-center min-h-[200px]">
+      <p class="text-[#73B1F0] text-2xl font-normal">
+        {{ texts.articles.empty }}
+      </p>
+    </div>
   </div>
 
   <UiKitsUiSlotsFormModelSlot
@@ -69,7 +70,12 @@
     <label class="font-bold" for="articleDescription">{{
       texts.createArticleForm.description
     }}</label>
-    <UTextarea placeholder="Message" :rows="10" v-model="articleDescription" maxLength="5000" />
+    <UTextarea
+      placeholder="Message"
+      :rows="10"
+      v-model="articleDescription"
+      maxLength="5000"
+    />
 
     <div class="flex justify-end">
       <UButton

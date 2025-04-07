@@ -4,19 +4,12 @@
 
 <script setup lang="ts">
 useHead({
-  title: "Da Browser Ex",
+  title: "Browser",
   link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   meta: [
-    { name: "description", content: "DA Browser Ex | Daniel Adeabah" },
-    {
-      name: "keywords",
-      content:
-        "Daniel Adeabah, Browser, Browser lists, Browser, Browser App, Web Developer, Web Designer, Software Engineer, Software Developer, Bamiankor, Nzema, Accra Developers, Ghana Developers, Front-End Developer",
-    },
-    { name: "author", content: "Daniel Adeabah" },
-    { name: "viewport", content: "width=device-width, initial-scale=1.0" },
-    { name: "robots", content: "index, follow" },
-    { name: "googlebot", content: "index, follow" },
+    { charset: "utf-8" },
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+    { key: "theme-color", name: "theme-color", content: "#fff" },
   ],
   htmlAttrs: {
     lang: "en",
